@@ -1,29 +1,33 @@
-.form-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  
-  .form-row label {
-    width: 150px;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  
-  .form-row input,
-  .form-row select {
-    width: 180px;
-    padding: 4px 6px;
-    font-size: 14px;
-  }
-  
-  .checkbox-row {
-    display: flex;
-    align-items: center;
-  }
-  
-  .checkbox-label {
-    margin-left: 5px;
-    font-size: 13px;
-  }
-  
+body {
+  background-color: #f0f2f5;
+}
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
+  background: linear-gradient(135deg, skyblue, white);
+}
+input {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: 200;
+  outline: none;
+  padding: 5px;
+}
+p {
+  font-weight: 400;
+}
+.purple-box {
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+form {
+  background-color: transparent;
+}
+.signup-box {
+  background-color: transparent;
+}
+.Field {
+  display: flex;
+}
