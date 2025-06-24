@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve Data</title>
+</head>
+<body>
+
+    <h3 id="data">Loading...</h3>
+
+    <script>
+       const output=localStorage.getItem('store');
+       document.getElementById('data').textContent=output;
+    </script>
+
+</body>
+</html>
+
+
