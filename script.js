@@ -1,53 +1,56 @@
-document.getElementById("registrationForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-  
-    const name = document.getElementById("regFullname").value.trim();
-    const email = document.getElementById("regEmail").value.trim();
-    const password = document.getElementById("regPassword").value;
-    const cPassword = document.getElementById("regcPassword").value;
-    const location = document.getElementById("Location").value.trim();
-    const zip = document.getElementById("Zip").value.trim();
-    const city = document.getElementById("LOPcity").value;
-    const termsChecked = document.getElementById("checkbox").checked;
-  
-    const nameRegex = /^[A-Za-z\s]+$/;
-    const emailRegex = /^\d{2}-\d{5}-\d@students\.aiub\.edu$/;
-    const zipRegex = /^\d{4}$/;
-  
-    if (!name || !email || !password || !cPassword || !location || !zip || !city) {
-      alert("All fields must be filled.");
-      return;
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const button = document.querySelector('button');
+const password = document.getElementById('password');
+const confirmpassword = document.getElementById('confirmpass');
+const country = document.getElementById('country');
+const dob = document.getElementById("dob");
+const favcolor = document.getElementById("favcolor");
+
+const nameregx = /^[A-Za-z]+$/
+const emailregx = /^\d{2}-\d{5}-\d@students\.aiub\.edu$/;
+const passwordregx = /^[A-Za-z0-9]{8,}$/;
+// const passwordlength = /^.{8,}$/;
+const backgroundbox = document.getElementById("backgroundbox");
+
+favcolor.addEventListener("input", function() {
+    backgroundbox.style.backgroundColor = this.value;
+});
+button.addEventListener("click", () => {
+    const inputname = name.value.trim();
+    const inputemail = email.value;
+    const passval = password.value.trim();
+    const selectedCountry = country.value;
+    const confirmpassval = confirmpassword.value.trim();
+    if (!nameregx.test(inputname)) {
+    alert("Not a valid name");
     }
-  
-    if (!nameRegex.test(name)) {
-      alert("Name should not contain special characters or numbers.");
-      return;
+    if (!emailregx.test(inputemail)) {
+        alert("Give valid Email !!")
     }
-  
-    if (!emailRegex.test(email)) {
-      alert("Email must be in the format: 22-47402-2@students.aiub.edu");
-      return;
+    if (confirmpassval!= passval)
+    {
+        alert("Password not matched!!!")
     }
-  
-    if (password !== cPassword) {
-      alert("Passwords do not match.");
-      return;
+    if (!passwordregx.test(passval))
+    {
+        alert("No special charecter allowed && minimum 8 charecter required!!!");
     }
-  
-    if (!zipRegex.test(zip)) {
-      alert("Zip code must be exactly 4 digits.");
-      return;
+    if (!selectedCountry) {
+        alert("Please select a country!");
+        return;
     }
-  
-    if (!termsChecked) {
-      alert("You must agree to the Terms and Conditions.");
-      return;
+
+   
+
+const dobValue = new Date(dob.value);
+const today = new Date();
+
+const agemili = today - dobValue;
+const age = agemili / (1000 * 60 * 60 * 24 * 365.25);
+
+    if (age < 18) {
+        alert("You must be at least 18 years old to register.");
+        return;
     }
-  
-    alert("Registration Successful!");
-  });
-  
-  document.getElementById("bgColor").addEventListener("input", function () {
-    document.getElementById("regBox").style.backgroundColor = this.value;
-  });
-  
+})
